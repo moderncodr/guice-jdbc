@@ -2,8 +2,7 @@ package org.hliu.guice.jdbc;
 
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -108,9 +107,9 @@ public interface Session {
 	/**
 	 * Execute a SQL select statement to get a int result
 	 */
-	public Date queryOneDate(String sql, long param);
+	public LocalDate queryOneDate(String sql, long param);
 	
-	public Date queryOneDate(String sql, String... parameters);
+	public LocalDate queryOneDate(String sql, String... parameters);
 	
 	/**
 	 * Execute a SQL query(select) statement to get one record. The record mapper object will be called to map the

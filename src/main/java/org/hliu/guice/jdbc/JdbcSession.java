@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -1092,8 +1093,8 @@ public class JdbcSession implements Session {
 	}
 	
 	@Override
-	public Date queryOneDate(String sql, long parameter) {
-		Date result = null;
+	public LocalDate queryOneDate(String sql, long parameter) {
+		LocalDate result = null;
 		
 		Connection conn = null;
 		PreparedStatement stat = null;
@@ -1105,7 +1106,7 @@ public class JdbcSession implements Session {
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
-				result = rs.getTimestamp(1);
+				result = rs.getTimestamp(1).toLocalDateTime().toLocalDate();
 			}
 			
 		} catch (Exception e) {
@@ -1177,8 +1178,8 @@ public class JdbcSession implements Session {
 	}
 	
 	@Override
-	public Date queryOneDate(String sql, String... parameters) {
-		Date result = null;
+	public LocalDate queryOneDate(String sql, String... parameters) {
+		LocalDate result = null;
 		
 		Connection conn = null;
 		PreparedStatement stat = null;
@@ -1195,7 +1196,7 @@ public class JdbcSession implements Session {
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
-				result = new Date(rs.getTimestamp(1).getTime());
+				result = rs.getTimestamp(1).toLocalDateTime().toLocalDate();
 			}
 			
 		} catch (Exception e) {
@@ -1493,7 +1494,7 @@ Integer result = null;
 		} else if (parameter.getType() == ParameterType.INT) {
 			stat.setLong(index, (Integer)parameter.getValue());
 		} else if (parameter.getType() == ParameterType.TIMESTAMP) {
-			stat.setTimestamp(index, new Timestamp(((Date)parameter.getValue()).getTime()));
+			stat.setTimestamp(index, Timestamp.from(Instant.from((LocalDate) parameter.getValue())));
 		} else {
 			throw new RuntimeException("Parameter is not supported: " + parameter);
 		}
