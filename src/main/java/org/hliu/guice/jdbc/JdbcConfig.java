@@ -3,6 +3,8 @@ package org.hliu.guice.jdbc;
 
 public class JdbcConfig {
 
+	private boolean autoCommit;
+
 	public int getMinPoolSize() {
 		return minPoolSize;
 	}
@@ -86,5 +88,12 @@ public class JdbcConfig {
 	
 	public final static String HIKARICP_POOL = "HIKARICP";
 	public final static String C3P0_POOL = "c3p0";
-	
+
+	public boolean getAutoCommit() {
+		return autoCommit;
+	}
+
+	public void setAutoCommit(boolean autoCommit) {
+		this.autoCommit = autoCommit;
+	}
 }

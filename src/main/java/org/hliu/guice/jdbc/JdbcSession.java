@@ -62,6 +62,7 @@ public class JdbcSession implements Session {
 		try {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
+			logger.debug(stat.toString());
 			count = stat.executeUpdate();
 		}
 		catch(Exception ex) {
@@ -95,6 +96,7 @@ public class JdbcSession implements Session {
 		try {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			rs.next();
 			result = rs.getLong(1);
@@ -136,6 +138,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			count = stat.executeUpdate();
 		}
 		catch(Exception ex) {
@@ -173,6 +176,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			rs.next();
 			result = rs.getLong(1);
@@ -214,7 +218,7 @@ public class JdbcSession implements Session {
 		try {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
-			
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			while(rs.next()) {
@@ -261,6 +265,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			while(rs.next()) {
 				// Store the result
@@ -303,6 +308,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			while(rs.next()) {
@@ -348,6 +354,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			while(rs.next()) {
@@ -392,7 +399,7 @@ public class JdbcSession implements Session {
 		try {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
-			
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -439,7 +446,7 @@ public class JdbcSession implements Session {
 			
 			// Set the parameters
 			parameterSetter.setValues(stat);
-			
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -484,6 +491,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setString(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -526,6 +534,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -575,7 +584,7 @@ public class JdbcSession implements Session {
 				}
 				
 			}
-			
+			logger.debug(stat.toString());
 			count = stat.executeUpdate();
 		}
 		catch(Exception ex) {
@@ -614,6 +623,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			count = stat.executeUpdate();
 		}
 		catch(Exception ex) {
@@ -657,7 +667,8 @@ public class JdbcSession implements Session {
 				}
 				
 			}
-			
+
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			rs.next();
 			result = rs.getLong(1);
@@ -704,7 +715,8 @@ public class JdbcSession implements Session {
 				}
 				
 			}
-			
+
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			while(rs.next()) {
@@ -748,7 +760,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
-			
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			while(rs.next()) {
@@ -796,6 +808,7 @@ public class JdbcSession implements Session {
 					stat.setString(i, parameters[i - 1]);
 				}
 			}
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getString(1);
@@ -840,7 +853,7 @@ public class JdbcSession implements Session {
 			stat = conn.prepareStatement(sql);
 			
 			stat.setLong(1, id);
-			
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -889,7 +902,7 @@ public class JdbcSession implements Session {
 				}
 				
 			}
-			
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -938,6 +951,7 @@ public class JdbcSession implements Session {
 				}
 				
 			}
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getLong(1);
@@ -978,6 +992,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getInt(1);
@@ -1019,6 +1034,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getLong(1);
@@ -1060,6 +1076,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -1103,6 +1120,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -1146,6 +1164,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getLong(1);
@@ -1192,7 +1211,8 @@ public class JdbcSession implements Session {
 					stat.setString(i, parameters[i - 1]);
 				}
 			}
-			
+
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {
@@ -1237,6 +1257,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setString(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			while(rs.next()) {
 				// Store the result
@@ -1279,6 +1300,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setInt(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			while(rs.next()) {
@@ -1323,6 +1345,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			while(rs.next()) {
 				// Store the result
@@ -1363,6 +1386,7 @@ public class JdbcSession implements Session {
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			parameterSetter.setValues(stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getString(1);
@@ -1406,6 +1430,7 @@ Integer result = null;
 			if(parameters != null) {
 				setParameters(parameters, stat);
 			}
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			if(rs.next()) {
 				result = rs.getInt(1);
@@ -1446,6 +1471,7 @@ Integer result = null;
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			setParameters(parameters, stat);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			while(rs.next()) {
 				// Store the result
@@ -1511,6 +1537,7 @@ Integer result = null;
 			conn = this.dataSource.getConnection();
 			stat = conn.prepareStatement(sql);
 			stat.setLong(1, parameter);
+			logger.debug(stat.toString());
 			rs = stat.executeQuery();
 			
 			if(rs.next()) {

@@ -37,7 +37,7 @@ public class DataSourceFactory {
         ds.setConnectionTimeout(300);
         ds.setMaxLifetime(60);
         ds.setMaximumPoolSize(config.getMaxPoolSize());
-        ds.setAutoCommit(false);
+        ds.setAutoCommit(config.getAutoCommit());
         return ds;
 	}
 
@@ -61,7 +61,7 @@ public class DataSourceFactory {
         
         ds.setMaxPoolSize(config.getMaxPoolSize());
         ds.setMaxStatements(config.getMaxStatementSize());
-        ds.setAutoCommitOnClose(false);
+        ds.setAutoCommitOnClose(config.getAutoCommit());
         
         return ds;
 	}
