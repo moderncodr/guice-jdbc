@@ -3,97 +3,98 @@ package org.hliu.guice.jdbc;
 
 public class JdbcConfig {
 
-	private boolean autoCommit;
+    private boolean autoCommit;
 
-	public int getMinPoolSize() {
-		return minPoolSize;
-	}
+    public int getMinPoolSize() {
+        return minPoolSize;
+    }
 
-	public void setMinPoolSize(int minPoolSize) {
-		this.minPoolSize = minPoolSize;
-	}
+    public void setMinPoolSize(int minPoolSize) {
+        this.minPoolSize = minPoolSize;
+    }
 
-	public int getMaxPoolSize() {
-		return maxPoolSize;
-	}
+    public int getMaxPoolSize() {
+        return maxPoolSize;
+    }
 
-	public void setMaxPoolSize(int maxPoolSize) {
-		this.maxPoolSize = maxPoolSize;
-	}
+    public void setMaxPoolSize(int maxPoolSize) {
+        this.maxPoolSize = maxPoolSize;
+    }
 
-	public int getMaxStatementSize() {
-		return maxStatementSize;
-	}
+    public int getMaxStatementSize() {
+        return maxStatementSize;
+    }
 
-	public void setMaxStatementSize(int maxStatementSize) {
-		this.maxStatementSize = maxStatementSize;
-	}
+    public void setMaxStatementSize(int maxStatementSize) {
+        this.maxStatementSize = maxStatementSize;
+    }
 
-	private int minPoolSize = 5;
-	
-	private int maxPoolSize = 20;
-	
-	private int maxStatementSize = 180;
-	
-	
-	public String getUsername() {
-		return username;
-	}
+    private int minPoolSize = 5;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    private int maxPoolSize = 20;
 
-	public String getPassword() {
-		return password;
-	}
+    private int maxStatementSize = 180;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
-	public String getDriver() {
-		return driver;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setDriver(String driver) {
-		this.driver = driver;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getPool() {
-		return pool;
-	}
+    public String getDriver() {
+        return driver;
+    }
 
-	public void setPool(String pool) {
-		this.pool = pool;
-	}
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
 
-	private String username;
-	
-	private String password;
-	
-	private String driver;
-	
-	private String url;
-	
-	private String pool = HIKARICP_POOL;
-	
-	public final static String HIKARICP_POOL = "HIKARICP";
-	public final static String C3P0_POOL = "c3p0";
+    public String getUrl() {
+        return url;
+    }
 
-	public boolean getAutoCommit() {
-		return autoCommit;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public void setAutoCommit(boolean autoCommit) {
-		this.autoCommit = autoCommit;
-	}
+    public String getPool() {
+        return pool;
+    }
+
+    public void setPool(String pool) {
+        this.pool = pool;
+    }
+
+    private String username;
+
+    private String password;
+
+    private String driver;
+
+    private String url;
+
+    private String pool = HIKARICP_POOL;
+
+    public final static String HIKARICP_POOL = "HIKARICP";
+    public final static String C3P0_POOL = "c3p0";
+    public final static String AGROAL = "agroal";
+
+    public boolean getAutoCommit() {
+        return autoCommit;
+    }
+
+    public void setAutoCommit(boolean autoCommit) {
+        this.autoCommit = autoCommit;
+    }
 }
